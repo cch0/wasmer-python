@@ -71,7 +71,7 @@ build package='api' rust_target=`rustc -vV | awk '/^host/ { print $2 }'`:
 build-all-wheels python_version rust_target:
 	just build-wheel api {{python_version}} {{rust_target}}
 	just build-wheel compiler-cranelift {{python_version}} {{rust_target}}
-	just build-wheel compiler-llvm {{python_version}} {{rust_target}}
+	# just build-wheel compiler-llvm {{python_version}} {{rust_target}}
 	just build-wheel compiler-singlepass {{python_version}} {{rust_target}}
 
 # Build the wheel of a specific package.
