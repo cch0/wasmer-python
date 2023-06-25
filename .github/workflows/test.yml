@@ -45,7 +45,7 @@ jobs:
 
           - id: 'darwin-arm64'
             os: 'macos-12'
-            target-name: 'arm64-apple-darwin'
+            target-name: 'aarch64-apple-darwin'
             rust-toolchain: 'nightly'
             llvm_url: 'https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/clang+llvm-15.0.7-arm64-apple-darwin22.0.tar.xz'
 
@@ -154,7 +154,7 @@ jobs:
           test -f $HOME/.cargo/bin/fd || cargo install fd-find
 
       - name: Set up extra utilities for macOS
-        if: matrix.target.id == 'darwin-amd64'
+        if: matrix.target.id == 'darwin-amd64' || matrix.target.id == 'darwin-arm64'
         shell: bash
         run: |
           brew install gnu-sed
